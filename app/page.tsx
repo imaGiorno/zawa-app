@@ -74,7 +74,6 @@ const copyResult = async () => {
         ざわ構文変換アプリ
       </h1>
 <p className="mb-6 rounded-lg bg-yellow-50 border border-yellow-200 p-4 text-sm text-gray-700">
-  本サイトは非公式のファンツールです。
   📖 通常の文章を「ざわ構文」に変換する非公式ツールです。<br />
   🎉 ざわ構文を楽しみたい方は、用法容量を守ってご使用ください。
 </p>
@@ -104,6 +103,16 @@ const copyResult = async () => {
       <div className="border mt-4 p-4 rounded whitespace-pre-wrap">
         {output}
       </div>
+      
+<footer className="mt-10 text-sm text-gray-500 flex gap-4">
+  <a href="/privacy" className="underline">
+    プライバシーポリシー
+  </a>
+
+  <a href="/contact" className="underline">
+    お問い合わせ
+  </a>
+</footer>
       {output && (
   <button
     onClick={copyResult}
@@ -116,12 +125,3 @@ const copyResult = async () => {
   );
 }
 
-<footer className="mt-10 text-sm text-gray-500 flex gap-4">
-  <a href="/privacy" className="underline">
-    プライバシーポリシー
-  </a>
-
-  <a href="/contact" className="underline">
-    お問い合わせ
-  </a>
-</footer>
