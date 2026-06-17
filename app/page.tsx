@@ -73,6 +73,10 @@ const copyResult = async () => {
       <h1 className="text-3xl font-bold mb-4">
         ざわ構文変換アプリ
       </h1>
+<p className="mb-6 rounded-lg bg-yellow-50 border border-yellow-200 p-4 text-sm text-gray-700">
+  📖 通常の文章を「ざわ構文」に変換する非公式ツールです。<br />
+  🎉 ざわ構文を楽しみたい方は、用法容量を守ってご使用ください。
+</p>
 
       <textarea
         className="border w-full p-2 rounded"
