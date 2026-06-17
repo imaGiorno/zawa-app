@@ -103,10 +103,27 @@ const copyResult = async () => {
       <div className="border mt-4 p-4 rounded whitespace-pre-wrap">
         {output}
       </div>
-      
+      {output && (
+  <a
+    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+      output +
+      "\n\n#ざわ構文変換アプリ\nhttps://zawa-app.vercel.app"
+    )}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block bg-black text-white px-4 py-2 mt-2 rounded"
+  >
+    🐦 Xで共有
+  </a>
+)}
+
 <footer className="mt-10 text-sm text-gray-500 flex gap-4">
   <a href="/privacy" className="underline">
     プライバシーポリシー
+  </a>
+
+  <a href="/terms" className="underline">
+    利用規約
   </a>
 
   <a href="/contact" className="underline">
@@ -120,6 +137,8 @@ const copyResult = async () => {
   >
     📋 コピー
   </button>
+
+  
 )}
     </main>
   );

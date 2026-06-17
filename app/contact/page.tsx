@@ -20,6 +20,10 @@ export default function ContactPage() {
         </a>
       </p>
 
+     <p>
+        －－－－－－－－－
+      </p>
+
       <p className="mb-4">
         御神体アカウント
       </p>
