@@ -74,6 +74,7 @@ const copyResult = async () => {
         ざわ構文変換アプリ
       </h1>
 <p className="mb-6 rounded-lg bg-yellow-50 border border-yellow-200 p-4 text-sm text-gray-700">
+  本サイトは非公式のファンツールです。
   📖 通常の文章を「ざわ構文」に変換する非公式ツールです。<br />
   🎉 ざわ構文を楽しみたい方は、用法容量を守ってご使用ください。
 </p>
