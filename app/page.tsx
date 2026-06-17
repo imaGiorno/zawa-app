@@ -114,3 +114,13 @@ const copyResult = async () => {
     </main>
   );
 }
+
+<footer className="mt-10 text-sm text-gray-500 flex gap-4">
+  <a href="/privacy" className="underline">
+    プライバシーポリシー
+  </a>
+
+  <a href="/contact" className="underline">
+    お問い合わせ
+  </a>
+</footer>
