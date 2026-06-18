@@ -86,6 +86,41 @@ const copyResult = async () => {
         placeholder="文章を入力してください"
       />
 
+<div className="mt-4">
+  <p className="font-bold mb-2">📝 入力例（タップで入力）</p>
+
+  <div className="flex flex-wrap gap-2">
+    <button
+      onClick={() => setInput("今日はありがとう")}
+      className="border px-3 py-1 rounded hover:bg-gray-100"
+    >
+      今日はありがとう
+    </button>
+
+    <button
+      onClick={() => setInput("ポケカやろう")}
+      className="border px-3 py-1 rounded hover:bg-gray-100"
+    >
+      ポケカやろう
+    </button>
+
+    <button
+      onClick={() => setInput("また遊ぼう")}
+      className="border px-3 py-1 rounded hover:bg-gray-100"
+    >
+      また遊ぼう
+    </button>
+
+    <button
+      onClick={() => setInput("とってもすごい")}
+      className="border px-3 py-1 rounded hover:bg-gray-100"
+    >
+      とってもすごい
+    </button>
+  </div>
+</div>
+
+
       <button
         onClick={convert}
         disabled={loading}
@@ -163,7 +198,18 @@ const copyResult = async () => {
     </div>
   </div>
 
+<div className="mt-10 p-4 border rounded bg-gray-50">
+  <h2 className="text-xl font-bold mb-2">
+    ざわ構文とは？
+  </h2>
 
+  <p className="text-sm text-gray-700 leading-7">
+    ざわ構文とは、一部のSNS上で人気の独特な文章表現です。
+    本サイトでは通常の文章を入力するだけで、
+    ざわ構文風の文章へ自動変換できます。
+    SNS投稿や友人とのネタ共有などにご活用ください。
+  </p>
+</div>
 
 <footer className="mt-10 text-sm text-gray-500 flex gap-4">
   <a href="/about" className="underline">
