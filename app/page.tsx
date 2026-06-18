@@ -76,9 +76,17 @@ const copyResult = async () => {
 
 
 const trackShare = () => {
-  window.gtag?.("event", "share_x", {
+    window.gtag?.("event", "share_x", {
     event_category: "engagement",
     event_label: "x_share_button",
+  });
+};
+
+
+const trackAmazonClick = (product: string) => {
+  window.gtag?.("event", "amazon_click", {
+    event_category: "affiliate",
+    event_label: product,
   });
 };
   
@@ -185,6 +193,7 @@ const trackShare = () => {
     <div className="flex flex-col gap-2">
 
       <a
+        onClick={() => trackAmazonClick("yukihami")}
         href="https://amzn.to/3QKAimB"
         target="_blank"
         rel="noopener noreferrer"
@@ -194,6 +203,7 @@ const trackShare = () => {
       </a>
 
       <a
+        onClick={() => trackAmazonClick("yukihami_doll")}
         href="https://amzn.to/4uTkfB6"
         target="_blank"
         rel="noopener noreferrer"
@@ -203,6 +213,7 @@ const trackShare = () => {
       </a>
 
       <a
+        onClick={() => trackAmazonClick("sleeve")}
         href="https://amzn.to/4gt29SF"
         target="_blank"
         rel="noopener noreferrer"
