@@ -2,12 +2,20 @@
 
 import { useState } from "react";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
+
 export default function Home() {
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState("");
 
+  
   const convert = async () => {
     if (!input.trim()) {
       setOutput("📝 文章を入力してネッ‼️");
@@ -66,6 +74,13 @@ const copyResult = async () => {
   alert("📋 コピーしました‼️");
 };
 
+
+const trackShare = () => {
+  window.gtag?.("event", "share_x", {
+    event_category: "engagement",
+    event_label: "x_share_button",
+  });
+};
   
 
   return (
@@ -148,6 +163,7 @@ const copyResult = async () => {
     </button>
 
      <a
+    onClick={trackShare}
     href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
       output +
       "\n\n#ざわ構文 #ざわ構文変換アプリ\nhttps://zawa-app.vercel.app"
