@@ -167,6 +167,10 @@ const copyResult = async () => {
 
 
 <footer className="mt-10 text-sm text-gray-500 flex gap-4">
+  <a href="/about" className="underline">
+    このサイトについて
+  </a>
+
   <a href="/privacy" className="underline">
     プライバシーポリシー
   </a>

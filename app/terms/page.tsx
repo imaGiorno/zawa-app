@@ -24,6 +24,20 @@ export default function TermsPage() {
       <p>
         制定日：2026年6月
       </p>
+
+      <footer className="mt-10 text-sm text-gray-500 flex gap-4">
+  <a href="/about" className="underline">
+    このサイトについて
+  </a>
+
+  <a href="/privacy" className="underline">
+    プライバシーポリシー
+  </a>
+
+  <a href="/contact" className="underline">
+    お問い合わせ
+  </a>
+</footer>
     </main>
   );
 }
