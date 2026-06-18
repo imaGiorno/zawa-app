@@ -16,7 +16,9 @@ export default function PrivacyPage() {
       <p className="mb-4">
         当サイトでは広告配信サービスを利用する場合があります。
       </p>
-
+      <p className="mt-6">
+        Amazonのアソシエイトとして、当サイトは適格販売により収入を得ています。
+      </p>
       <p className="mb-4">
         本ポリシーは必要に応じて変更する場合があります。
       </p>
