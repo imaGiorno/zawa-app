@@ -126,7 +126,6 @@ const copyResult = async () => {
   </>
   
 )}
-{output && (
   <div className="mt-4">
     <p className="font-bold mb-2">
       🔥 ポケカ好き向けおすすめ商品
@@ -140,7 +139,7 @@ const copyResult = async () => {
         rel="noopener noreferrer"
         className="bg-orange-500 text-white px-4 py-2 rounded text-center"
       >
-        🃏 ユキハミ🥳
+        🃏 ユキハミ関連グッズ
       </a>
 
       <a
@@ -149,7 +148,7 @@ const copyResult = async () => {
         rel="noopener noreferrer"
         className="bg-orange-500 text-white px-4 py-2 rounded text-center"
       >
-        🎒 ユキハミぬい🥳
+        🧸 ユキハミぬいぐるみ
       </a>
 
       <a
@@ -158,12 +157,12 @@ const copyResult = async () => {
         rel="noopener noreferrer"
         className="bg-orange-500 text-white px-4 py-2 rounded text-center"
       >
-        📚 スリーブを見る
+        📚 ポケカ用スリーブ
       </a>
 
     </div>
   </div>
-)}
+
 
 
 <footer className="mt-10 text-sm text-gray-500 flex gap-4">
