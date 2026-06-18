@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 declare global {
   interface Window {
@@ -14,6 +14,15 @@ export default function Home() {
   const [output, setOutput] = useState("");
   const [loading, setLoading] = useState(false);
   const [loadingMessage, setLoadingMessage] = useState("");
+  const [history, setHistory] = useState<string[]>([]);
+
+useEffect(() => {
+  const saved = localStorage.getItem("zawa-history");
+
+  if (saved) {
+    setHistory(JSON.parse(saved));
+  }
+}, []);
 
   
   const convert = async () => {
@@ -51,6 +60,18 @@ clearTimeout(timer1);
 
 setLoadingMessage("🥳 変換完了‼️");
 setOutput(data.result);
+
+const newHistory = [
+  input,
+  ...history.filter((item) => item !== input),
+].slice(0, 5);
+
+setHistory(newHistory);
+
+localStorage.setItem(
+  "zawa-history",
+  JSON.stringify(newHistory)
+);
 
 setTimeout(() => {
   setLoading(false);
@@ -237,6 +258,40 @@ const trackAmazonClick = (product: string) => {
     SNS投稿や友人とのネタ共有などにご活用ください。
   </p>
 </div>
+
+{history.length > 0 && (
+  <div className="mt-8 border rounded p-4">
+
+    <div className="flex justify-between items-center mb-3">
+      <h2 className="font-bold">
+        🕒 最近の変換履歴
+      </h2>
+
+      <button
+        onClick={() => {
+          localStorage.removeItem("zawa-history");
+          setHistory([]);
+        }}
+        className="text-sm text-red-500"
+      >
+        履歴削除
+      </button>
+    </div>
+
+    <div className="flex flex-col gap-2">
+      {history.map((item, index) => (
+        <button
+          key={index}
+          onClick={() => setInput(item)}
+          className="text-left border rounded px-3 py-2 hover:bg-gray-100"
+        >
+          {item}
+        </button>
+      ))}
+    </div>
+
+  </div>
+)}
 
 <footer className="mt-10 text-sm text-gray-500 flex gap-4">
   <a href="/about" className="underline">
