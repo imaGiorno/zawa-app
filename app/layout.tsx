@@ -65,6 +65,9 @@ export default function RootLayout({
             gtag('config', 'G-W2MPK2C65P');
           `}
         </Script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2124144886346829"
+     crossorigin="anonymous"></script>
+
       </head>
 
       <body className="min-h-full flex flex-col">
