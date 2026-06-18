@@ -112,17 +112,17 @@ const copyResult = async () => {
       📋 コピー
     </button>
 
-    <a
-      href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-        output +
-        "\n\n#ざわ構文変換アプリ\nhttps://zawa-app.vercel.app"
-      )}`}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-block bg-black text-white px-4 py-2 mt-2 rounded"
-    >
-      🐦 Xで共有
-    </a>
+     <a
+    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
+      output +
+      "\n\n#ざわ構文 #ざわ構文変換アプリ\nhttps://zawa-app.vercel.app"
+    )}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block bg-black text-white px-4 py-2 mt-2 rounded"
+  >
+    🐦 Xで共有
+  </a>
   </>
   
 )}
