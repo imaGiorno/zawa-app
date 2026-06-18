@@ -206,6 +206,41 @@ const trackAmazonClick = (product: string) => {
   </>
   
 )}
+
+{history.length > 0 && (
+  <div className="mt-8 border rounded p-4">
+
+    <div className="flex justify-between items-center mb-3">
+      <h2 className="font-bold">
+        🕒 最近の変換履歴
+      </h2>
+
+      <button
+        onClick={() => {
+          localStorage.removeItem("zawa-history");
+          setHistory([]);
+        }}
+        className="text-sm text-red-500"
+      >
+        履歴削除
+      </button>
+    </div>
+
+    <div className="flex flex-col gap-2">
+      {history.map((item, index) => (
+        <button
+          key={index}
+          onClick={() => setInput(item)}
+          className="text-left border rounded px-3 py-2 hover:bg-gray-100"
+        >
+          {item}
+        </button>
+      ))}
+    </div>
+
+  </div>
+)}
+
   <div className="mt-4">
     <p className="font-bold mb-2">
       🔥 ポケカ好き向けおすすめ商品
@@ -259,39 +294,6 @@ const trackAmazonClick = (product: string) => {
   </p>
 </div>
 
-{history.length > 0 && (
-  <div className="mt-8 border rounded p-4">
-
-    <div className="flex justify-between items-center mb-3">
-      <h2 className="font-bold">
-        🕒 最近の変換履歴
-      </h2>
-
-      <button
-        onClick={() => {
-          localStorage.removeItem("zawa-history");
-          setHistory([]);
-        }}
-        className="text-sm text-red-500"
-      >
-        履歴削除
-      </button>
-    </div>
-
-    <div className="flex flex-col gap-2">
-      {history.map((item, index) => (
-        <button
-          key={index}
-          onClick={() => setInput(item)}
-          className="text-left border rounded px-3 py-2 hover:bg-gray-100"
-        >
-          {item}
-        </button>
-      ))}
-    </div>
-
-  </div>
-)}
 
 <footer className="mt-10 text-sm text-gray-500 flex gap-4">
   <a href="/about" className="underline">
