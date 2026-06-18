@@ -50,9 +50,6 @@ export default function ContactPage() {
     利用規約
   </a>
 
-  <a href="/contact" className="underline">
-    お問い合わせ
-  </a>
 </footer>
 
     </main>

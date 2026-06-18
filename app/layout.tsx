@@ -14,7 +14,30 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "ざわ構文変換アプリ",
-  description: "ざわ構文を自動生成",
+  description: "通常の文章をざわ構文に変換する非公式ツール",
+
+  openGraph: {
+    title: "ざわ構文変換アプリ",
+    description: "通常の文章をざわ構文に変換する非公式ツール",
+    url: "https://zawa-app.vercel.app",
+    siteName: "ざわ構文変換アプリ",
+    images: [
+      {
+        url: "/ogp.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "ja_JP",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "ざわ構文変換アプリ",
+    description: "通常の文章をざわ構文に変換する非公式ツール",
+    images: ["/ogp.png"],
+  },
 };
 
 export default function RootLayout({
