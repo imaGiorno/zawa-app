@@ -51,24 +51,28 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-W2MPK2C65P"
-        />
+  <Script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-W2MPK2C65P"
+  />
 
-        <Script id="google-analytics">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+  <Script id="google-analytics">
+    {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-            gtag('config', 'G-W2MPK2C65P');
-          `}
-        </Script>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2124144886346829"
-     crossorigin="anonymous"></script>
+      gtag('config', 'G-W2MPK2C65P');
+    `}
+  </Script>
 
-      </head>
+  <Script
+    async
+    strategy="afterInteractive"
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2124144886346829"
+    crossOrigin="anonymous"
+  />
+</head>
 
       <body className="min-h-full flex flex-col">
         {children}
