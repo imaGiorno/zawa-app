@@ -43,23 +43,31 @@ useEffect(() => {
     setLoadingMessage("🔍 デッキ確認します...");
   }, 1000);
 
-  try {
+  
     const res = await fetch("/api/convert", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        text: input,
-      }),
-    });
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    text: input,
+  }),
+});
+
+console.log("status:", res.status);
 
 const data = await res.json();
+
+console.log("response:", data);
+
+if (!res.ok) {
+  throw new Error(data.error || "API Error");
+}
 
 clearTimeout(timer1);
 
 setLoadingMessage("🥳 変換完了‼️");
-setOutput(data.result);
+setOutput(data.result ?? "結果が空です");
 
 const newHistory = [
   input,
@@ -78,7 +86,7 @@ setTimeout(() => {
   setLoadingMessage("");
 }, 1000);
 
-  } catch (e) {
+  catch (e) {
     clearTimeout(timer1);
     
 

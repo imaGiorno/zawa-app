@@ -79,9 +79,6 @@ console.log("変換実行", new Date().toISOString());
 急に💨ざわ構文🗯送り付けちゃう😉💌🕊カラ🈳覚悟✊🏻🔥しててね➰ん💖
 私😃がドラパ🐉🐍使ってる所しか🦌お見せ出来てない😣❎と思う💭ので是非今度🔜ポケカ🃏🆓して欲しいです🥳❗️
 今期も🔥一緒に🤝🏻JCS🏟⚔️行くわよ🤜🏻🤛🏻🤩
-⑩ﾝな〜〜aにそんな可愛いᶜᵘᵗᵉ😘💝コト💟を言ってくれるんですｶｯ😭🫶🏻‼️やちゃ🍵さんにリプ💌送る時🕊はいっぱい💥絵文字🔠付けちゃう☑️よ➰ん🧚‍♂️✨
-またポケカ🃏したいし、やちゃさんと早く🏃🏼遊びたいナ💖🐘💨
-いつもにこにこ😆笑顔🔆のやちゃさんが大好き🥰🫶🏻
 ⑪皆🌏の✮希望✮の𝐒𝐓🅰️𝐑🌈🌟ここちゃ𝐕ｨｲ✌🏻💫改めてJCS🔥𝐃𝐚𝐲2🗓️進出🔝＆˙⋆🍀奇跡🍀⋆꙳の7⃣7⃣位（🎋七夕🌌🄱🄾🅈👦🏻生誕💮）おめでとう‼マツコ🐸🩵も嬉しそうだ🎶✨本当に悔しい😖と思う💭けど、ここまで✅勝ち進んでる👑ことが本当にすごい⭐️🙌🏻し強い😼⤴️し尊敬だ🥳🎉本当におめでとう🎊㊗️💐
 
 【禁止事項】
@@ -102,12 +99,28 @@ ${text}
 
 ざわ構文だけを出力してください。
 `;
+  try {
   const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
     contents: prompt,
   });
 
+  console.log("Gemini Response:", response);
+
   return Response.json({
     result: response.text,
   });
+
+} catch (error) {
+  console.error("Gemini Error:", error);
+
+  return Response.json(
+    {
+      error: "AI変換エラー",
+    },
+    {
+      status: 500,
+    }
+  );
+}
 }
