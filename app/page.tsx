@@ -54,7 +54,6 @@ useEffect(() => {
       }),
     });
 
-    console.log("status:", res.status);
 const data = await res.json();
 
 clearTimeout(timer1);
