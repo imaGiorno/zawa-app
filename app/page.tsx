@@ -43,7 +43,7 @@ useEffect(() => {
     setLoadingMessage("🔍 デッキ確認します...");
   }, 1000);
 
-  
+  try {
     const res = await fetch("/api/convert", {
   method: "POST",
   headers: {
@@ -86,7 +86,7 @@ setTimeout(() => {
   setLoadingMessage("");
 }, 1000);
 
-  catch (e) {
+  } catch (e) {
     clearTimeout(timer1);
     
 
