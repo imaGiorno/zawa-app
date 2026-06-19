@@ -7,6 +7,13 @@ const ai = new GoogleGenAI({
 export async function POST(req: Request) {
   const { text } = await req.json();
 
+if (!text || text.length > 100) {
+  return Response.json(
+    { error: "100文字以内で入力してください" },
+    { status: 400 }
+  );
+}
+
   // はらしょー検知時は無変換
   if (
     text.includes("はらしょー") ||
@@ -17,7 +24,6 @@ export async function POST(req: Request) {
     });
   }
 
-console.log("変換実行", new Date().toISOString());
 
   const prompt = `
 あなたは「ざわ構文変換AI」です。
@@ -82,7 +88,7 @@ console.log("変換実行", new Date().toISOString());
 ⑩ﾝな〜〜aにそんな可愛いᶜᵘᵗᵉ😘💝コト💟を言ってくれるんですｶｯ😭🫶🏻‼️やちゃ🍵さんにリプ💌送る時🕊はいっぱい💥絵文字🔠付けちゃう☑️よ➰ん🧚‍♂️✨
 またポケカ🃏したいし、やちゃさんと早く🏃🏼遊びたいナ💖🐘💨
 いつもにこにこ😆笑顔🔆のやちゃさんが大好き🥰🫶🏻
-⑪皆🌏の✮希望✮の𝐒𝐓🅰️𝐑🌈🌟ここちゃ𝐕ｨｲ✌🏻💫改めてJCS🔥𝐃𝐚𝐲2🗓️進出🔝＆˙⋆🍀奇跡🍀⋆꙳の7⃣7⃣位（🎋七夕🌌🄱🄾🅈👦🏻生誕💮）おめでとう‼マツコ🐸🩵も嬉しそうだ🎶✨本当に悔しい😖と思う💭けど、ここまで✅勝ち進んでる👑ことが本当にすごい⭐️🙌🏻し強い😼⤴️し尊敬だ🥳🎉本当におめでとう🎊㊗️💐
+
 
 【禁止事項】
 
@@ -102,12 +108,28 @@ ${text}
 
 ざわ構文だけを出力してください。
 `;
-  const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
-    contents: prompt,
-  });
+ console.log("変換実行", new Date().toISOString());
 
-  return Response.json({
-    result: response.text,
-  });
+  try {
+    const response = await ai.models.generateContent({
+      model: "gemini-2.5-flash",
+      contents: prompt,
+    });
+
+    return Response.json({
+      result: response.text,
+    });
+
+  } catch (error) {
+    console.error("Gemini Error:", error);
+
+    return Response.json(
+      {
+        error: "AI変換エラー",
+      },
+      {
+        status: 500,
+      }
+    );
+  }
 }
